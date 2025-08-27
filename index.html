@@ -351,11 +351,29 @@
   });
 
   form.addEventListener('submit', function(event) {
-    event.preventDefault();
-    form.submit();
-    formContainer.style.display = 'none';
-    successMessage.style.display = 'block';
-  });
+  event.preventDefault();
+
+  // Показуємо модалку "Привіт"
+  const helloModal = document.getElementById('helloModal');
+  helloModal.style.display = 'block';
+
+  // Приховуємо форму
+  formContainer.style.display = 'none';
+  successMessage.style.display = 'none';
+});
+
+// Закриття модалки "Привіт"
+document.getElementById('closeHello').addEventListener('click', function() {
+  document.getElementById('helloModal').style.display = 'none';
+});
+
+window.addEventListener('click', function(event) {
+  const helloModal = document.getElementById('helloModal');
+  if (event.target === helloModal) {
+    helloModal.style.display = 'none';
+  }
+});
+
 
   // Модальне вікно
   const modal = document.getElementById("policyModal");
@@ -380,5 +398,6 @@
 </script>
 </body>
 </html>
+
 
 
